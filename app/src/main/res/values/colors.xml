@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dam_color">#c1ff65</color>
+    <color name="daw_color">#ff5436</color>
+    <color name="asir_color">#b675ff</color>
 </resources>

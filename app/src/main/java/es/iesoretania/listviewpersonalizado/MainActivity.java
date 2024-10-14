@@ -79,12 +79,41 @@ public class MainActivity extends AppCompatActivity {
 
         listViewSimple.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
                 Personas persona = personasList.get(position);
+
                 Intent intent = new Intent(MainActivity.this, ActivityModulos.class);
+
                 intent.putExtra("nombre", persona.getNombre());
                 intent.putExtra("apellidos", persona.getApellidos());
                 intent.putExtra("ciclo", persona.getCiclo());
+
+                int imageRes = 0;
+                int backGroundColor = 0;
+
+                switch ( persona.getCiclo( ) )
+                {
+                    case "DAM": {
+                        imageRes = R.drawable.dam_image;
+                        backGroundColor = R.color.dam_color;
+                        break;
+                    }
+                    case "DAW": {
+                        imageRes = R.drawable.daw_image;
+                        backGroundColor = R.color.daw_color;
+                        break;
+                    }
+                    case "ASIR": {
+                        imageRes = R.drawable.asir_image;
+                        backGroundColor = R.color.asir_color;
+                        break;
+                    }
+                }
+
+                intent.putExtra("imageRes", imageRes);
+                intent.putExtra("backgroundColor", backGroundColor);
+                
                 startActivity(intent);
             }
         });

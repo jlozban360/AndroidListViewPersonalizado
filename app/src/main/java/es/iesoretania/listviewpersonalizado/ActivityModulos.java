@@ -17,16 +17,22 @@ public class ActivityModulos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_modulos);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
-        binding = ActivityModulosBinding.inflate( getLayoutInflater( ) );
-        setContentView( binding.getRoot( ) );
+        binding = ActivityModulosBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
+        String ciclo = getIntent().getStringExtra("ciclo");
+        int imageRes = getIntent().getIntExtra("imageRes", -1); // Cambiar a -1 para verificar si no se pasa imagen
+        int backgroundColor = getIntent().getIntExtra("backgroundColor", -1); // Cambiar a -1 para verificar si no se pasa color
 
+        if (imageRes != -1) {
+            binding.imageViewModulo.setImageResource(imageRes);
+        }
+
+        if (backgroundColor != -1) {
+            binding.mainLayout.setBackgroundColor(getResources().getColor(backgroundColor));
+        }
+
+        binding.textViewModulo.setText("Estás en el módulo de " + ciclo);
     }
 }
