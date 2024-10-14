@@ -23,14 +23,14 @@ import es.iesoretania.listviewpersonalizado.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private ListView listViewSimple;
-    private List<Personas> personasList = new ArrayList<>(); // Cambiado a List<Personas>
+    private List<Personas> personasList = new ArrayList<>();
     private ActivityMainBinding binding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
 
+        EdgeToEdge.enable( this );
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -45,6 +45,16 @@ public class MainActivity extends AppCompatActivity {
         personasList.add(new Personas("Juan", "Pérez", "Masculino", "DAM"));
         personasList.add(new Personas("Ana", "García", "Femenino", "DAW"));
         personasList.add(new Personas("Jose", "Lozano", "Masculino", "ASIR"));
+        personasList.add(new Personas("Laura", "Martínez", "Femenino", "DAM"));
+        personasList.add(new Personas("Carlos", "Hernández", "Masculino", "DAW"));
+        personasList.add(new Personas("Marta", "Sánchez", "Femenino", "ASIR"));
+        personasList.add(new Personas("Luis", "Gómez", "Masculino", "DAM"));
+        personasList.add(new Personas("Sofía", "López", "Femenino", "DAW"));
+        personasList.add(new Personas("David", "Fernández", "Masculino", "ASIR"));
+        personasList.add(new Personas("Elena", "Ruiz", "Femenino", "DAM"));
+        personasList.add(new Personas("Miguel", "Domínguez", "Masculino", "DAW"));
+        personasList.add(new Personas("Isabel", "Morales", "Femenino", "ASIR"));
+        personasList.add(new Personas("Pablo", "Vega", "Masculino", "DAM"));
 
         ArrayAdapter<Personas> adapter = new ArrayAdapter<Personas>(this, 0, personasList) {
             @Override
@@ -56,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 ImageView imageViewAvatar = convertView.findViewById(R.id.imageView);
                 TextView textViewNombre = convertView.findViewById(R.id.textViewNombre);
                 TextView textViewApellidos = convertView.findViewById(R.id.textViewApellidos);
-                TextView textViewCiclo = convertView.findViewById(R.id.textViewModulo); // Asegúrate de que este ID coincida
+                TextView textViewCiclo = convertView.findViewById(R.id.textViewModulo);
 
                 Personas persona = getItem(position);
 
